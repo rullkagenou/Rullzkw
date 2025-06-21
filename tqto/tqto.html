@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanks to - TQTO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+
+    .neon-text {
+      color: #00ffe7;
+      text-shadow:
+        0 0 5px #00ffe7,
+        0 0 10px #00ffe7,
+        0 0 20px #00ffe7,
+        0 0 40px #00ffe7;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .vibrate {
+      animation: vibrate 0.3s infinite;
+    }
+
+    @keyframes vibrate {
+      0% { transform: translate(0); }
+      25% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(-2px); }
+      100% { transform: translateX(2px); }
+    }    
+    <!-- Background Partikel -->
+  <div id="particles-js"></div>
+  
+  </style>
+</head>
+<body class="text-white flex items-center justify-center min-h-screen p-4">
+
+  <div class="text-center fade-in">
+
+    <!-- Audio & Tombol Musik -->
+    <audio id="bg-music" loop>
+      <source src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc4t0d3c.mp4" type="audio/mpeg">
+      Browser Anda tidak mendukung audio.
+    </audio>
+
+    <div class="mb-4">
+      <button onclick="toggleMusic()" id="music-btn"
+        class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 shadow-lg">
+        <span id="music-icon" class="vibrate">🔈</span> Musik: ON
+      </button>
+    </div>
+
+    <!-- Tombol Kembali -->
+    <div class="mb-6">
+      <a href="index.html" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 shadow-lg">
+       Kembali ke Halaman Awal
+      </a>
+    </div>
+
+    <h1 class="text-5xl font-extrabold neon-text mb-6">TQTO 🙏</h1>
+    <p class="text-lg text-gray-200 max-w-xl mx-auto mb-10">
+      Terima kasih kepada teman-teman hebat yang telah mendukung saya dalam pembuatan web:
+    </p>
+    <p>Lopyu all terumata untuk "Dia" 🤍</p>
+
+    <!-- Kontributor -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+      <!-- Rull XVR -->
+      <a href="https://www.tiktok.com/@xxrullzy" target="_blank" class="block">
+        <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-md hover:scale-105 transition-transform">
+          <img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc4sbsao.jpg" alt="Rull Zys(Kage)" class="w-20 h-20 mx-auto mb-2 rounded-full object-cover" />
+          <h2 class="text-xl font-semibold">Rull Zys(Kage)</h2>
+          <p class="text-sm text-gray-300">Developer(web) & Founder</p>
+        </div>
+      </a>
+
+      <!-- Ditss -->
+      <a href="https://www.tiktok.com/@paadit" target="_blank" class="block">
+        <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-md hover:scale-105 transition-transform">
+          <img src="https://api.ditss.cloud/icon.png" alt="Ditss" class="w-20 h-20 mx-auto mb-2 rounded-full object-cover" />
+          <h2 class="text-xl font-semibold">Ditss(owner asuma)</h2>
+          <p class="text-sm text-gray-300">suporter & Designer</p>
+        </div>
+      </a>
+
+      <!-- Zzamrud -->
+      <a href="https://www.instagram.com/zampyhr" target="_blank" class="block">
+        <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-md hover:scale-105 transition-transform">
+          <img src="https://img1.pixhost.to/images/6632/613529342_imgtmp.jpg" alt="Zamrud" class="w-20 h-20 mx-auto mb-2 rounded-full object-cover" />
+          <h2 class="text-xl font-semibold">Zamrud</h2>
+          <p class="text-sm text-gray-300">Friend & suporter</p>
+           </div>
+          </a>         
+          
+          <!-- zam -->
+      <a href="https://www.tiktok.com/@rans12367" target="_blank" class="block">
+        <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-md hover:scale-105 transition-transform">
+          <img src="https://img1.pixhost.to/images/6634/613577530_imgtmp.jpg" alt="Zam" class="w-20 h-20 mx-auto mb-2 rounded-full object-cover" />
+          <h2 class="text-xl font-semibold">zam</h2>
+          <p class="text-sm text-gray-300">suporter</p>
+        </div>
+      </a>
+      
+     <!-- miaw -->
+      <a href="https://www.tiktok.com/@sena_elvira" target="_blank" class="block">
+        <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-md hover:scale-105 transition-transform">
+          <img src="https://raw.githubusercontent.com/media-clouds/upload/id/27616006628/mc4xjlvz.jpg" alt="Miaw" class="w-20 h-20 mx-auto mb-2 rounded-full object-cover" />
+          <h2 class="text-xl font-semibold">Miaw</h2>
+          <p class="text-sm text- gray-300">suporter</p>
+          </div>
+         </a> 
+
+    </div>
+  </div>
+
+  <!-- Script Musik -->
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+    const icon = document.getElementById("music-icon");
+
+    music.volume = 0.5;
+    music.play().catch(() => {
+      icon.textContent = "🔇";
+      icon.classList.remove("vibrate");
+      btn.innerHTML = '<span id="music-icon">🔇</span> Musik: OFF (klik untuk nyala)';
+    });
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        icon.textContent = "🔈";
+        icon.classList.add("vibrate");
+        btn.classList.remove("bg-red-500", "hover:bg-red-600");
+        btn.classList.add("bg-green-500", "hover:bg-green-600");
+        btn.innerHTML = '<span id="music-icon" class="vibrate">🔈</span> Musik: ON';
+      } else {
+        music.pause();
+        icon.textContent = "🔇";
+        icon.classList.remove("vibrate");
+        btn.classList.remove("bg-green-500", "hover:bg-green-600");
+        btn.classList.add("bg-red-500", "hover:bg-red-600");
+        btn.innerHTML = '<span id="music-icon">🔇</span> Musik: OFF';
+      }
+    }    
+  </script>
+
+</body>
+</html>
