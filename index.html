@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RullkageDg.com</title>
+  <style>
+  .sidebar a,
+.sidebar button {
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar a::after,
+.sidebar button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(138, 43, 226, 0.4); /* ungu transparan */
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
+  z-index: 0;
+}
+
+.sidebar a:active::after,
+.sidebar button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+  body.light-mode {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+body.light-mode header {
+  background-color: #e0e0e0;
+}
+
+body.light-mode .card,
+body.light-mode .dropdown-menu,
+body.light-mode .popup-content,
+body.light-mode #paymentPopup .content {
+  background-color: white;
+  color: #111;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .option {
+  background-color: #f9f9f9;
+  border: 1px solid #00bfff;
+  color: #00bfff;
+}
+
+body.light-mode .option:hover {
+  background-color: #00bfff;
+  color: white;
+}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+
+    #particles-js {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #1e293b;
+      position: relative;
+      z-index: 10;
+    }
+
+    header .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #menuToggle {
+      background: none;
+      border: none;
+      color: #00bfff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav.desktop-nav a {
+      margin: 0 10px;
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+   .dropdown-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 180px;
+  height: auto;
+  background-color: #1e293b;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 4px 0 10px rgba(0, 191, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  opacity: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Tambahkan class aktif */
+.dropdown-menu.show {
+  transform: translateX(0);
+  opacity: 1;
+  animation: bounceInLeft 0.5s ease;
+}
+
+    .dropdown-menu a {
+      color: #00bfff;
+      padding: 8px 0;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    #hero {
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .card {
+      background: #1e293b;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,191,255,0.3);
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: rgba(20, 20, 30, 0.95);
+      padding: 25px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      color: #00bfff;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    }
+
+    .option {
+      background-color: #111;
+      border: 1px solid #00bfff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #00eaff;
+    }
+
+    .option:hover {
+      background-color: #00bfff;
+      color: white;
+    }
+
+    .close-btn {
+      background-color: #444;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .payment-button-fixed {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .payment-button-fixed button {
+      padding: 12px 25px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    }
+
+    #paymentPopup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #paymentPopup .content {
+      background: #111;
+      color: #00bfff;
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
+      max-width: 350px;
+      width: 90%;
+    }
+
+    #paymentPopup button {
+      background: #00bfff;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin: 6px;
+      cursor: pointer;
+    }
+
+    #qrContainer img {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+    .marquee-sidebar {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #4c1d95; /* ungu gelap */
+  color: white;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.marquee-sidebar .marquee-text {
+  display: inline-block;
+  animation: sidebarScroll 8s linear infinite;
+}
+
+@keyframes sidebarScroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+    @keyframes bounceInLeft {
+  0% {
+    transform: translateX(-100%) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(10px) scale(1.05);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-4px) scale(0.98);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+    
+    <aside class="sidebar" style="position:fixed;top:0;left:0;width:200px;height:100vh;background:#1e293b;padding:20px 10px;z-index:500;overflow-y:auto;transition:all 0.3s ease;transform:translateX(-100%);">
+  <h2 style="color:#00bfff;text-align:center;margin-bottom:20px;">RullZys(Kage)🤖</h2>
+  <div class="marquee-sidebar">
+  <div class="marquee-text">Website By Rull-Zys(Kage)😎</div>
+</div>
+  <a href="tqto/tqto.html" style="display:block;padding:10px;color:white;text-decoration:none;">😎 Tqto</a>
+  <a href="noted.html" style="display:block;padding:10px;color:white;text-decoration:none;">📑 Noted</a>
+  <a href="dev.html" style="display:block;padding:10px;color:white;text-decoration:none;">📧 My Contact</a>  
+  </div>
+</aside>
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <button id="menuToggle">☰</button>
+        <h1 style="margin: 0;">Rull-Website</h1>
+      </div>
+      <nav class="desktop-nav">
+        <a href="#topup">Top Up</a>
+        <a href="#langganan">Langganan</a>
+        <a href="#nokos">Nokos</a>
+        <a href="noted.html">noted</a>
+        <a href="dev.html">info developer</a>
+        <a href="tqto/tqto.html">TQTO</a>
+      </nav>
+      <button id="themeToggle" style="padding: 6px 12px; background: #00bfff; color: white; border: none; border-radius: 8px; cursor: pointer;">
+  ☀️ Mode Terang
+</button>
+    </div>            
+  </header>     
+  <section id="hero">
+    <h2>Selamat Datang di Rull-Web</h2>
+    <p>Layanan digital lengkap: Top Up, Langganan, Nokos & lainnya.</p>
+  </section>
+
+  <section id="services">
+    <div class="card" id="topup">
+      <h3>🎮Top Up Game</h3>
+      <button onclick="showPopup('popup-topup')">Beli Sekarang</button>
+    </div>
+    <div class="card" id="langganan">
+      <h3>🌘Langganan Premium</h3>
+      <button onclick="showPopup('popup-langganan')">Beli Sekarang</button>
+    </div>
+    <div class="card" id="nokos">
+      <h3>🅾️Nokos All Negara</h3>
+      <button onclick="showPopup('popup-nokos')">Beli Sekarang</button>
+    </div>
+    <div class="card" id="panel">
+      <h3>🤖Panel Bot</h3>
+      <button onclick="showPopup('popup-panel')">Beli Sekarang</button>
+      </div>
+      <div class="card" id="spesial">
+      <h3>🤍Halaman spesial🤍</h3>
+      <button onclick="showPopup('popup-spesial')">PENCET DI SINI</button>
+    </div>
+    <div class="card" id="tiktok">
+    <h3>Tiktok - Downloader</h3>
+      <button onclick="showPopup('popup-tiktok')">Pencet di sini untuk mengarahkan ke halaman download</button>
+    </div>
+  </section>
+
+  <footer id="kontak">
+    <p>©Rull-website. starting from zero.</p>
+    <p>Kontak: <a href="mailto:zysRull@Gmail.com">zysRull@Gmail.com</a></p>
+  </footer>
+
+  <!-- Popup Produk -->
+  <div class="popup" id="popup-topup">
+  <div class="popup-content">
+  <img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc5ps2gr.jpg" alt="Logo" style="display: block; margin: 0 auto 10px; width: 150px;" />
+    <h2>🎮Top Up - Pilih Layanan</h2>
+    <div class="option" onclick="window.location.href='topup/ml.html'">Mobile Legends</div>
+    <div class="option" onclick="window.location.href='topup/ff.html'">Free Fire</div>
+    <div class="option" onclick="window.location.href='topup/pubg.html'">PUBG</div>
+    <div class="close-btn" onclick="hidePopup('popup-topup')">Tutup</div>
+  </div>
+</div>
+
+<div class="popup" id="popup-langganan">
+  <div class="popup-content">
+  <img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc5phbr5.jpg" alt="Logo" style="display: block; margin: 0 auto 10px; width: 150px;" />
+    <h2>🌘Langganan - Pilih Layanan</h2>
+    <div class="option" onclick="window.location.href='langganan/Netflix.html'">Netflix</div>
+    <div class="option" onclick="window.location.href='langganan/spotify.html'">Spotify</div>
+    <div class="option" onclick="window.location.href='langganan/youtube.html'">YouTube</div>
+    <div class="option" onclick="window.location.href='langganan/capcut.html'">Capcut</div>
+    <div class="option" onclick="window.location.href='langganan/am.html'">Alight motion</div>
+    <div class="close-btn" onclick="hidePopup('popup-langganan')">Tutup</div>
+  </div>
+</div>
+
+  <div class="popup" id="popup-nokos">
+    <div class="popup-content">
+    <img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc5pz7r1.jpg" alt="Logo" style="display: block; margin: 0 auto 10px; width: 150px;" />
+      <h2>🅾️Nokos - Pilih Negara</h2>
+      <div class="option" onclick="window.location.href='nokos/indonesia.html'">Indonesia</div>
+      <div class="option" onclick="window.location.href='nokos/usa.html'">USA</div>
+      <div class="option" onclick="window.location.href='nokos/malaysia.html'">Malaysia</div>
+      <div class="option" onclick="window.location.href='nokos/afrika.html'">Afrika</div>
+      <div class="close-btn" onclick="hidePopup('popup-nokos')">Tutup</div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-panel">
+    <div class="popup-content">
+    <img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc5q16lv.jpg" alt="Logo" style="display: block; margin: 0 auto 10px; width: 150px;" />
+      <h2>🤖Panel - Pilih Tipe</h2>
+      <div class="option" onclick="window.location.href='panel/panelwhatsap.html'">Panel WA</div>      
+      <div class="close-btn" onclick="hidePopup('popup-panel')">Tutup</div>
+    </div>
+  </div>
+  
+       <div class="popup" id="popup-spesial">
+    <div class="popup-content">
+     <div style="font-size: 36px; text-align: center; font-weight: bold;">🤍</div>
+      <h2>🩶Halaman - Spesial🩶</h2>
+      <div class="option" onclick="window.location.href='spesial.html'">Halaman ini untukmu</div>      
+      <div class="close-btn" onclick="hidePopup('popup-spesial')">Tutup</div>
+    </div>
+   </div>
+   
+          <div class="popup" id="popup-tiktok">
+    <div class="popup-content">
+     <div style="font-size: 36px; text-align: center; font-weight: bold;">RullZys</div>
+      <h2>Tiktok - Downloader</h2>
+      <div class="option" onclick="window.location.href='public/tiktok.html'">Pencet ini untuk mengarahkan ke halaman download</div>      
+      <div class="close-btn" onclick="hidePopup('popup-tiktok')">Tutup</div>
+       </div>
+      </div>
+       
+  <!-- Tombol pembayaran -->
+  <div class="payment-button-fixed">
+    <button onclick="openPaymentPopup()">💳 Payment di sini</button>
+  </div>
+
+  <!-- Popup pembayaran -->
+  <div id="paymentPopup">
+    <div class="content">
+      <h3>Pilih Metode Pembayaran</h3>
+      <button onclick="showQR('dana')">Dana</button>
+      <button onclick="showQR('gopay')">Gopay</button>
+      <button onclick="showQR('qris')">QRIS</button>
+      <div id="qrContainer"></div>
+      <br>
+      <button onclick="closePaymentPopup()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function hidePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function openPaymentPopup() {
+      document.getElementById("paymentPopup").style.display = "flex";
+    }
+
+    function closePaymentPopup() {
+      document.getElementById("paymentPopup").style.display = "none";
+      document.getElementById("qrContainer").innerHTML = "";
+    }
+
+    function showQR(method) {
+      let nomor = "0838-9273-0732";
+      if (method === 'qris') {
+        document.getElementById("qrContainer").innerHTML =
+          '<img src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc1o0c3r.jpg" alt="QRIS" style="max-width: 250px; width: 100%; border-radius: 10px;">';
+      } else {
+        navigator.clipboard.writeText(nomor).then(() => {
+          document.getElementById("qrContainer").innerHTML =
+            `Nomor ${method.toUpperCase()}: ${nomor}<br><small style="color:lime;">Disalin ke clipboard</small>`;
+        }).catch(() => {
+          document.getElementById("qrContainer").innerHTML =
+            `Nomor ${method.toUpperCase()}: ${nomor}<br><small style="color:red;">Gagal menyalin</small>`;
+        });
+      }
+    }
+
+    // Dropdown menu logic
+    const menuToggle = document.getElementById("menuToggle");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    menuToggle.addEventListener("click", () => {
+  dropdownMenu.classList.toggle("show");
+});
+
+    dropdownMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        dropdownMenu.style.display = "none";
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#00bfff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#00bfff",
+          opacity: 0.2,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+  <script>
+  const themeToggle = document.getElementById("themeToggle");
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    themeToggle.textContent = isLight ? "🌙 Mode Gelap" : "☀️ Mode Terang";
+  });
+</script>
+
+<script>
+  const sidebar = document.querySelector('.sidebar');
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    sidebar.style.transform = sidebar.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+  });
+
+  const dropdowns = document.querySelectorAll(".dropdown-btn");
+  dropdowns.forEach(btn => {
+    btn.addEventListener("click", function () {
+      const dropdown = this.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+<script>
+  // Tutup sidebar saat klik di luar sidebar
+  document.addEventListener('click', function(event) {
+    const sidebar = document.querySelector('.sidebar');
+    const menuToggle = document.getElementById('menuToggle');
+    
+    const isSidebarOpen = sidebar.style.transform === 'translateX(0px)';
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+
+    if (isSidebarOpen && !isClickInsideSidebar && !isClickOnToggle) {
+      sidebar.style.transform = 'translateX(-100%)';
+    }
+  });
+</script>
+</body>
+</html>

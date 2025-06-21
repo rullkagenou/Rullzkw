@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Info Developer - RullkageDg</title>
+  <style>
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-top: 30px;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    }
+
+    .container {
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-buttons button,
+    .back-button,
+    .music-button {
+      background-color: #00bfff;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    .modal-content a {
+      color: #00eaff;
+      text-decoration: none;
+    }
+
+    .close {
+      color: #ffffff;
+      float: right;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #1e293b;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Partikel -->
+  <div id="particles-js"></div>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc4uwwmd.mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <div class="container">
+    <img src="https://img1.pixhost.to/images/6633/613542104_imgtmp.jpg" alt="Foto Developer" class="profile-img" />
+    <h2>RullkageDg</h2>
+   <p id="intro" style="color: #00bfff;"></p>
+
+<script>
+  const text = "Hai salam kenal aku adalah Rull(kage) seorang web developer & UI designer dari Indonesia yang ingin terus berkembang lebih baik lagi..";
+  let i = 0;
+  const speed = 50; // kecepatan ketik
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("intro").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+</script>
+    <p>Terus support selalu ya🤍<p>
+
+    <div class="contact-buttons">
+      <button onclick="openModal('email')">📧 Email</button>
+      <button onclick="openModal('wa')">💬 WhatsApp</button>
+      <button onclick="openModal('tt')">🌘 Tiktok</button>
+      <button class="music-button" onclick="toggleMusic()">🎵 Musik: <span id="music-status">OFF</span></button>
+    </div>
+
+    <div>
+      <a href="index.html">
+        <button class="back-button">Kembali ke Halaman Utama</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy;Web by:RullkageDg. starting from zero.</p>
+  </footer>
+
+  <!-- Kontak Modal Script -->
+  <script>
+    function openModal(type) {
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+
+      let content = '';
+if (type === 'email') {
+  content = `
+    <p>Email Developer:</p>
+    <a href="mailto:RullZys@gmail.com" style="display:inline-block; padding:8px 15px; background-color:#007bff; color:white; text-decoration:none; border-radius:5px;">Kirim Pesan Melalui Email</a>
+     <p style="margin-top:8px;">Tombol di atas akan langsung mengarahkan ke Gmail</p>
+  `;
+} else if (type === 'wa') {
+  content = `
+    <p>Hubungi lewat WhatsApp:</p>
+    <a href="https://wa.me/6283892730732" target="_blank" style="display:inline-block; padding:8px 15px; background-color:#25D366; color:white; text-decoration:none; border-radius:5px; margin-bottom:5px;">Whatsapp utama</a><br/>
+    <a href="https://wa.me/27616006628" target="_blank" style="display:inline-block; padding:8px 15px; background-color:#25D366; color:white; text-decoration:none; border-radius:5px;">Whatsapp ke dua</a>
+     <p style="margin-top:8px;">Tombol di atas akan langsung Mengarah ke whatsapp</p>
+  `;
+} else if (type === 'tt') {
+  content = `
+    <p>My Tiktok:</p>
+    <a href="https://www.tiktok.com/@xxrullzy" target="_blank" style="display:inline-block; padding:8px 15px; background-color:#ff0050; color:white; text-decoration:none; border-radius:5px;">Klik di Sini</a>
+    <p style="margin-top:8px;">Tombol di atas akan langsung Mengarah TikTok</p>
+  `;
+}
+      modalBody.innerHTML = content;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById('modal');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+
+  <!-- Musik ON/OFF -->
+  <script>
+    const audio = document.getElementById('bg-music');
+    const musicStatus = document.getElementById('music-status');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        musicStatus.innerText = 'OFF';
+      } else {
+        audio.play();
+        musicStatus.innerText = 'ON';
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#00bfff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#00bfff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          out_mode: 'out'
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>

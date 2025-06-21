@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untukmu Cinta Pertama💔</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background:
+        linear-gradient(to bottom right, rgba(255, 183, 197, 0.6), rgba(255, 105, 180, 0.5)),
+        url('https://i.ibb.co/NFgXGJD/soft-hearts-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ecf0f1;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    main {
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .surat-container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      max-width: 600px;
+      margin: 20px auto;
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+
+    .typing-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #ecf0f1;
+      white-space: pre-wrap;
+      border-right: 2px solid #FF0000;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .tanda-tangan {
+      margin-top: 30px;
+      font-style: italic;
+      color: #bdc3c7;
+      display: none;
+    }
+
+    .heart {
+      font-size: 28px;
+      animation: pulse 2s infinite;
+      color: #f1c40f;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .btn-kembali {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #f1c40f;
+      color: #2c3e50;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-kembali:hover {
+      background-color: #e0b722;
+    }
+
+    .heart-particle {
+      position: fixed;
+      top: -20px;
+      font-size: 20px;
+      color: #ff6b81;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #musicIcon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #musicLabel {
+      position: fixed;
+      top: 65px;
+      right: 20px;
+      font-size: 12px;
+      color: #fff0f5;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="surat-container">
+      <div class="heart">🩷</div>
+      <h2>Untukmu si cinta pertama💔</h2>
+      <div id="typing" class="typing-text"></div>
+      <p id="signature" class="tanda-tangan">
+        Dari seorang npc yang menyukai mu dalam diam,<br>
+        <strong>- Code name"R"</strong>
+      </p>
+
+      <a href="index.html" id="backBtn" class="btn-kembali" style="display: none;">Kembali ke Menu Utama</a>
+    </div>
+  </main>
+
+  <!-- Musik & Ikon -->
+  <audio id="bgMusic" loop>
+    <source src="https://raw.githubusercontent.com/media-clouds/upload/id/6283892730732/mc5l87xp.mp3" type="audio/mp3">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <img id="musicIcon"
+       src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+       alt="Tombol Musik" />
+  <div id="musicLabel">Putar Musik</div>
+
+  <script>
+    const text = `Aku pernah memandangmu lama, saat kamu tak melihatku.
+Aku pernah tersenyum sendirian, hanya karena membaca pesanmu yang menurutmu biasa saja, tapi itu sangat berarti bagiku.
+
+Aku menyukaimu, tapi memilih diam. Karena aku tau di hatimu masih ada seseorang yang sangat kau sayangi, oleh karna itu aku memilih diam.
+Bukan hanya itu dulu kau juga pernah bilang begini kepadaku "jangan sukai aku lagi"(dalam chat) 
+
+Tapi Aku tidak bisa menuruti kata kata itu entah kenapa hatiku selalu berdebar kencang ketika melihatmu.
+Dan sekarang kita sudah lulus, tidak bisa saling bertemu, aku sudah tidak bisa melihatmu dari kejauhan lagi. 
+
+Halaman ini ku buat khusus untukmu semoga kau baik baik saja... 
+
+yaaa semoga kita di pertemukan di ketidak sengajaan berikutnya.`;
+
+    const typingDiv = document.getElementById("typing");
+    const signature = document.getElementById("signature");
+    const backBtn = document.getElementById("backBtn");
+    let i = 0;
+
+    function typeEffect() {
+      if (i < text.length) {
+        typingDiv.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 40);
+      } else {
+        typingDiv.style.borderRight = "none";
+        signature.style.display = "block";
+        backBtn.style.display = "inline-block";
+      }
+    }
+
+    typeEffect();
+
+    // Partikel Hati
+    function createHeartParticle() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart-particle");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeartParticle, 300);
+
+    // Musik Toggle
+    const music = document.getElementById("bgMusic");
+    const musicIcon = document.getElementById("musicIcon");
+    const musicLabel = document.getElementById("musicLabel");
+    let isPlaying = false;
+
+    const iconOn = "https://cdn-icons-png.flaticon.com/512/727/727269.png";
+    const iconOff = "https://cdn-icons-png.flaticon.com/512/727/727245.png";
+
+    musicIcon.addEventListener("click", () => {
+      if (!isPlaying) {
+        music.play();
+        musicIcon.src = iconOn;
+        musicLabel.innerText = "Berhenti";
+        isPlaying = true;
+      } else {
+        music.pause();
+        musicIcon.src = iconOff;
+        musicLabel.innerText = "Putar Musik";
+        isPlaying = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
