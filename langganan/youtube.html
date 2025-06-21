@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Langganan Spotify | Rull-Web</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Partikel background */
+    #particles-js {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    h1, h2 {
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      background: #1e293b;
+      border: 1px solid #00bfff;
+      border-radius: 10px;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #00eaff;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .option:hover {
+      background: #00bfff;
+      color: white;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #1e1e2e;
+      padding: 25px;
+      border-radius: 15px;
+      color: #00bfff;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .popup-content button {
+      margin: 10px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .popup-content button:hover {
+      background: #009acd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Partikel Background -->
+  <div id="particles-js"></div>
+
+  <a href="../index.html" style="
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: #00bfff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+  ">← Kembali ke Halaman Utama</a>
+
+  <h2>langganan Spotify</h2>
+  <p>Proses cepat dan legal</p>
+       <h2>Public:</h2>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; justify-items: center; max-width: 300px; margin: 0 auto 30px;">
+    <div class="option" onclick="showConfirm('1 Bulan - Rp20.000')">1 Bulan<br>Rp20.000</div>
+    <div class="option" onclick="showConfirm('1 Bulan - Rp20.000')">1 Bulan<br>Rp20.000</div>
+    <div style="grid-column: span 2; font-weight: bold; font-size: 18px; color:  #ADD8E6;">Private:</div>
+    <div class="option" onclick="showConfirm('1 Bulan - Rp20.000')">1 Bulan<br>Rp20.000</div>
+    <div class="option" onclick="showConfirm('1 Bulan - Rp20.000')">1 Bulan<br>Rp20.000</div>
+  </div>
+
+  <div class="popup" id="confirmPopup">
+    <div class="popup-content">
+      <h3 id="selectedItem"></h3>
+      <p>Tap tombol di bawah untuk menuju whatsapp</p>
+      <a id="waLink" href="#" target="_blank">
+        <button>WhatsApp</button>
+      </a>
+      <button onclick="closePopup()">Batal</button>
+    </div>
+  </div>
+
+  <p>Website by Rull-Zys</p>
+  <p>kontak pengembang:0838-9273-0732</p>
+
+  <script>
+    function showConfirm(item) {
+      document.getElementById('selectedItem').innerText = item;
+      document.getElementById('waLink').href =
+        `https://wa.me/6283892730732?text=Halo%20Saya%20ingin%20langganan%20Youtube%20Premium%20(${encodeURIComponent(item)})`;
+      document.getElementById('confirmPopup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('confirmPopup').style.display = 'none';
+    }
+  </script>
+
+  <!-- Script Partikel -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": { "value": "#00bfff" },
+        "shape": { "type": "circle" },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00bfff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": false }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+</html>
